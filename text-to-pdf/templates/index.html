@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text to PDF Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Convert Text to PDF</h1>
+        <form action="/download-pdf" method="post">
+            <textarea name="text" placeholder="Enter your text here..." required></textarea>
+            <button type="submit">Download PDF</button>
+        </form>
+    </div>
+</body>
+</html>
