@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, send_file
 from fpdf import FPDF
 import io
+import os
 
 app = Flask(__name__)
 
@@ -23,6 +24,11 @@ def download_pdf():
     buffer = io.BytesIO()
     pdf.output(buffer)
     buffer.seek(0)
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
 
     return send_file(buffer, as_attachment=True, download_name='output.pdf', mimetype='application/pdf')
 
